@@ -30,8 +30,8 @@ public class VolumeManager {
     
     /// Current audio type setting for the mediaView
     private var currentAudioType: AudioType {
-        get { return AudioType(rawValue: session.category) ?? .standard }
-        set { _ = try? session.setCategory(newValue.rawValue, with: .mixWithOthers) }
+        get { return AudioType(rawValue: convertFromAVAudioSessionCategory(session.category)) ?? .standard }
+        set { _ = try? session.setCategory(AVAudioSession.Category(rawValue: newValue.rawValue), options: .mixWithOthers) }
     }
     
     // MARK: - Public
@@ -45,4 +45,9 @@ public class VolumeManager {
     public func adjustAudioWhenStopping() {
         currentAudioType = audioTypeWhenStop
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromAVAudioSessionCategory(_ input: AVAudioSession.Category) -> String {
+	return input.rawValue
 }

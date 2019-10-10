@@ -58,7 +58,7 @@ class Label: UILabel {
     
     override func drawText(in rect: CGRect) {
         let insets = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
-        super.drawText(in: UIEdgeInsetsInsetRect(rect, insets))
+        super.drawText(in: rect.inset(by: insets))
     }
     
     private func commonInitializer() {

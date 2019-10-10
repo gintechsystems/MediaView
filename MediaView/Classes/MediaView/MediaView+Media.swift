@@ -10,7 +10,7 @@ import Foundation
 public extension MediaView {
     
     // MARK: - Image
-    public override var image: UIImage? {
+    override var image: UIImage? {
         didSet {
             if let image = image {
                 delegate?.mediaView(self, didSetImage: image)
@@ -18,7 +18,7 @@ public extension MediaView {
         }
     }
     
-    public func setImage(url: String, completion: ((_ image: UIImage) -> Void)? = nil) {
+    func setImage(url: String, completion: ((_ image: UIImage) -> Void)? = nil) {
         media.imageURL = url
         
         if !imageViewNotReused {
@@ -46,7 +46,7 @@ public extension MediaView {
     }
     
     // MARK: - Video
-    public func setVideo(url: String) {
+    func setVideo(url: String) {
         media.videoURL = url
         track.reset()
         setPlayIndicatorView()
@@ -58,48 +58,48 @@ public extension MediaView {
         toggleTrackDisplay()
     }
     
-    public func setVideo(url: String, thumbnail: UIImage) {
+    func setVideo(url: String, thumbnail: UIImage) {
         image = thumbnail
         setVideo(url: url)
     }
     
-    public func setVideo(url: String, thumbnailUrl: String) {
+    func setVideo(url: String, thumbnailUrl: String) {
         setImage(url: thumbnailUrl)
         setVideo(url: url)
     }
     
-    public func setVideo(url: String, thumbnail: UIImage, previewGIFData: Data) {
+    func setVideo(url: String, thumbnail: UIImage, previewGIFData: Data) {
         setVideo(url: url, thumbnail: thumbnail)
         setPreviewGIF(data: previewGIFData)
     }
     
-    public func setVideo(url: String, thumbnail: UIImage, previewGIFUrl: String) {
+    func setVideo(url: String, thumbnail: UIImage, previewGIFUrl: String) {
         setVideo(url: url, thumbnail: thumbnail)
         setPreviewGIF(url: previewGIFUrl)
     }
     
-    public func setVideo(url: String, thumbnailUrl: String, previewGIFData: Data) {
+    func setVideo(url: String, thumbnailUrl: String, previewGIFData: Data) {
         setVideo(url: url, thumbnailUrl: thumbnailUrl)
         setPreviewGIF(data: previewGIFData)
     }
     
-    public func setVideo(url: String, thumbnailUrl: String, previewGIFUrl: String) {
+    func setVideo(url: String, thumbnailUrl: String, previewGIFUrl: String) {
         setVideo(url: url, thumbnailUrl: thumbnailUrl)
         setPreviewGIF(url: previewGIFUrl)
     }
     
-    public func setVideo(url: String, thumbnailGIFData: Data) {
+    func setVideo(url: String, thumbnailGIFData: Data) {
         setVideo(url: url)
         setGIF(data: thumbnailGIFData)
     }
     
-    public func setVideo(url: String, thumbnailGIFUrl: String) {
+    func setVideo(url: String, thumbnailGIFUrl: String) {
         setVideo(url: url)
         setGIF(url: thumbnailGIFUrl)
     }
     
     // MARK: - Audio
-    public func setAudio(url: String) {
+    func setAudio(url: String) {
         media.audioURL = url
         track.reset()
         setPlayIndicatorView()
@@ -111,22 +111,22 @@ public extension MediaView {
         toggleTrackDisplay()
     }
     
-    public func setAudio(url: String, thumbnail: UIImage) {
+    func setAudio(url: String, thumbnail: UIImage) {
         image = thumbnail
         setAudio(url: url)
     }
     
-    public func setAudio(url: String, thumbnailUrl: String) {
+    func setAudio(url: String, thumbnailUrl: String) {
         setImage(url: thumbnailUrl)
         setAudio(url: url)
     }
     
-    public func setAudio(url: String, thumbnailGIFData: Data) {
+    func setAudio(url: String, thumbnailGIFData: Data) {
         setAudio(url: url)
         setGIF(data: thumbnailGIFData)
     }
     
-    public func setAudio(url: String, thumbnailGIFUrl: String) {
+    func setAudio(url: String, thumbnailGIFUrl: String) {
         setAudio(url: url)
         setGIF(url: thumbnailGIFUrl)
     }
@@ -140,11 +140,11 @@ public extension MediaView {
         setGIF(url: url, isPreview: true)
     }
     
-    public func setGIF(data: Data) {
+    func setGIF(data: Data) {
         setGIF(data: data, isPreview: false)
     }
     
-    public func setGIF(url: String) {
+    func setGIF(url: String) {
         setGIF(url: url, isPreview: false)
     }
     

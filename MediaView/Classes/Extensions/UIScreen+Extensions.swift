@@ -8,12 +8,12 @@
 public extension UIScreen {
     
     /// Derived by whether the width of the screen is less than the height of the screen
-    public static var isPortrait: Bool {
+    static var isPortrait: Bool {
         return UIScreen.superviewWidth < UIScreen.superviewHeight
     }
     
     /// Derived by whether the height of the screen is less than the width of the screen
-    public static var isLandscape: Bool {
+    static var isLandscape: Bool {
         return UIScreen.superviewHeight < UIScreen.superviewWidth
     }
     
@@ -33,8 +33,8 @@ public extension UIScreen {
     }
     
     /// Width of the mainWindow, adjusted for orientation
-    public static var superviewWidth: CGFloat {
-        if UIDeviceOrientationIsLandscape(UIDevice.current.orientation) {
+    static var superviewWidth: CGFloat {
+        if UIDevice.current.orientation.isLandscape {
             return width > height ? width : height
         } else {
             return width > height ? height : width
@@ -42,8 +42,8 @@ public extension UIScreen {
     }
     
     /// Height of the mainWindow, adjusted for orientation
-    public static var superviewHeight: CGFloat {
-        if UIDeviceOrientationIsLandscape(UIDevice.current.orientation) {
+    static var superviewHeight: CGFloat {
+        if UIDevice.current.orientation.isLandscape {
             return width > height ? height : width
         } else {
             return width > height ? width : height
@@ -51,7 +51,7 @@ public extension UIScreen {
     }
     
     /// Determines if device is iPhone X
-    public static var isX: Bool {
+    static var isX: Bool {
         return Int(UIApplication.shared.statusBarFrame.height) == 44
     }
 }

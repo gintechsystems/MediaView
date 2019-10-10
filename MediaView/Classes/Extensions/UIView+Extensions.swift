@@ -9,7 +9,7 @@ import Foundation
 
 extension UIView {
     
-    func addConstraints(_ constraints: [NSLayoutAttribute], toView view: UIView, constant: CGFloat = 0) {
+    func addConstraints(_ constraints: [NSLayoutConstraint.Attribute], toView view: UIView, constant: CGFloat = 0) {
         for constraint in constraints {
             switch constraint {
             case .height, .width:

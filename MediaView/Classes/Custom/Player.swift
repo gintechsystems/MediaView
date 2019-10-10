@@ -70,6 +70,8 @@ class Player: AVPlayer {
                 self.removeObservers()
             case .readyToPlay:
                 self.delegate?.didBecomeReadyToPlay(player: self)
+            @unknown default:
+                fatalError()
             }
         })
         

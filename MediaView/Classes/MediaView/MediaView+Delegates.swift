@@ -29,8 +29,8 @@ extension MediaView: UIGestureRecognizerDelegate, LabelDelegate, TrackViewDelega
             return
         }
         
-        let timeCM = CMTimeMakeWithSeconds(time, timeScale)
-        player.seek(to: timeCM, toleranceBefore: kCMTimeZero, toleranceAfter: kCMTimeZero)
+        let timeCM = CMTimeMakeWithSeconds(time, preferredTimescale: timeScale)
+        player.seek(to: timeCM, toleranceBefore: CMTime.zero, toleranceAfter: CMTime.zero)
     }
     
     // MARK: - PlayIndicatorDelegate

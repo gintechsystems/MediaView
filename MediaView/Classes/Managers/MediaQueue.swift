@@ -58,7 +58,7 @@ public class MediaQueue: NSObject {
         
         UIWindow.main.makeKeyAndVisible()
         UIWindow.main.addSubview(mediaView)
-        UIWindow.main.bringSubview(toFront: mediaView)
+        UIWindow.main.bringSubviewToFront(mediaView)
         
         current = mediaView
         
@@ -85,7 +85,7 @@ public class MediaQueue: NSObject {
     
     /// Remove mediaView from the queue
     public func dequeue(mediaView: MediaView) {
-        if let index = queue.index(of: mediaView) {
+        if let index = queue.firstIndex(of: mediaView) {
             queue.remove(at: index)
         }
     }
