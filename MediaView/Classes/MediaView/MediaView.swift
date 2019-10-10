@@ -386,10 +386,10 @@ public class MediaView: UIImageView {
     }()
     
     /// ABPlayer which will handle video playback
-    var player: Player?
+    internal var player: Player?
     
     /// AVPlayerLayer which will display video
-    var playerLayer: AVPlayerLayer?
+    public var playerLayer: AVPlayerLayer?
     
     /// Original superview for presenting mediaview
     private var originalSuperview: UIView?
@@ -1157,6 +1157,18 @@ public class MediaView: UIImageView {
         shouldDisplayRemainingTime = false
         
         resetMedia()
+    }
+    
+    public func pausePlayer() {
+        player?.pause()
+    }
+    
+    public func playPlayer() {
+        player?.play()
+    }
+    
+    public func mutePlayer(mute :Bool) {
+        player?.isMuted = mute
     }
     
     // MARK: - Static
