@@ -1159,26 +1159,6 @@ public class MediaView: UIImageView {
         resetMedia()
     }
     
-    public func playerCurrentSeekTime() -> CMTime? {
-        return player?.currentTime()
-    }
-    
-    public func mutePlayer(mute :Bool) {
-        player?.isMuted = mute
-    }
-    
-    public func pausePlayer() {
-        player?.pause()
-    }
-    
-    public func playPlayer() {
-        player?.play()
-    }
-    
-    public func seekPlayer(time: CMTime) {
-        player?.seek(to: time)
-    }
-    
     // MARK: - Static
     /// Determines whether GIFs and Images should be cached
     public static var cacheMediaWhenDownloaded: Bool {
