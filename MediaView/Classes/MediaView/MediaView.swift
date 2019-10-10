@@ -386,10 +386,10 @@ public class MediaView: UIImageView {
     }()
     
     /// ABPlayer which will handle video playback
-    internal var player: Player?
+    var player: Player?
     
     /// AVPlayerLayer which will display video
-    private var playerLayer: AVPlayerLayer?
+    var playerLayer: AVPlayerLayer?
     
     /// Original superview for presenting mediaview
     private var originalSuperview: UIView?
