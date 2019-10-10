@@ -1159,6 +1159,14 @@ public class MediaView: UIImageView {
         resetMedia()
     }
     
+    public func playerCurrentSeekTime() -> CMTime? {
+        return player?.currentTime()
+    }
+    
+    public func mutePlayer(mute :Bool) {
+        player?.isMuted = mute
+    }
+    
     public func pausePlayer() {
         player?.pause()
     }
@@ -1167,8 +1175,8 @@ public class MediaView: UIImageView {
         player?.play()
     }
     
-    public func mutePlayer(mute :Bool) {
-        player?.isMuted = mute
+    public func seekPlayer(time: CMTime) {
+        player?.seek(to: time)
     }
     
     // MARK: - Static
